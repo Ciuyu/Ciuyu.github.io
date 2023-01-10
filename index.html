@@ -1,130 +1,87 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>陈星宇</title>
-		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="index.css"/>
-		<link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:720px)" />
-	</head>
-	<body>
-		<audio id="yy" controls="false" autoplay="true" loop="loop" style="display: none;">
-			<source src="Music/愿你余生漫长.mp3" type="audio/mpeg" />
-		</audio>
-		<audio id="ty" controls="false" autoplay="true" loop="loop" style="display: none;">
-			<source src="Music/太阳.mp3" type="audio/mpeg" />
-		</audio>
-		<!-- 加载 -->
-		<div class="bj">
-			<div class="bj-imgs">
-				<img onclick="screen()" class="Love" src="img/爱心.png" >
-			</div>
-		</div>
-		<!-- 加载结束 -->
-		
-		
-		<!-- 内容 -->
-		<div class="centent">
-			<div class="centent-warp">
-				<div class="dc">
-					<div class="centent-top">
-						<div class="top-warp">
-							<video style="object-fit: cover;" id="video" class="video" autoplay="" loop="" muted="muted" style="background-image:url(>)">
-									<source src="img/ship2.mp4" type="video/mp4">
-							</video>
-						</div>
-					</div>
-					<div class="centent-center" id="text"></div>
-					<div onclick="getClass()" class="centent-bottom">点我</div>
-				</div>
-			</div>
-		</div>
-		<!-- 内容结束 -->
-		
-		
-		<!-- 烟花 -->
-		<div id="container">
-		    <div id="fireworks"><img src="img/fireworks.png" alt=""></div>
-		    <div id="firecracker"><img src="img/firecracker.png" alt="" width="8px"></div>
-			<p class="zi">祝陈星宇同学天天快乐！</p>
-			<p class="zi2">拜拜！</p>
-		</div>
-		<!-- 烟花结束 -->
-	</body>
-	<script type="text/javascript">
-		let = document.getElementById("yy");
-		let = document.getElementById("ty");
-		ty.pause();
-		video.pause();
-		$(function() {
-			$(".Love").toggleClass("active");
-		})
-		
-		function screen () {
-			$('.bj').delay(100).fadeOut('slow');
-			yy.pause();
-			ty.play();
-			video.play();
-			$(".centent .centent-warp .dc").css({
-				opacity:"1",
-				transform:"scale(1)",
-			})
-			let divTyping = document.getElementById('text');
-			let i = 0,
-				timer = 0,
-				str = '我为你在世界各地准备了烟花，不要问我花了多少钱，那都不重要，毕竟你值得。'
-			
-			function typing() {
-				if (i <= str.length) {
-					divTyping.innerHTML = str.slice(0, i++) + '_'
-					timer = setTimeout(typing, 180)
-				} else {
-					divTyping.innerHTML = str //结束打字,移除 _ 光标
-					clearTimeout(timer)
-				}
-			}
-			typing()
-		}
-		
-		function getClass () {
-			$(".centent .centent-top").css({
-				opacity:"0",
-				top:"-500px",
-			})
-			$(".centent .centent-center").css({
-				opacity:"0",
-			})
-			$(".centent .centent-bottom").css({
-				opacity:"0",
-				top:"500px",
-			})
-			$('.centent').delay(100).fadeOut('slow');
-			$("#firecracker").css({
-				transform: "scale(0)",
-				bottom: "60%",
-			})
-			setTimeout(function() {
-				$("#fireworks").css({
-					transform: "scale(1)",
-					opacity:"1",
-				})
-				setTimeout(function() {
-					$("#fireworks").css({
-						opacity:"0",
-					})
-				},1500)
-				$("#container .zi").css({
-					left:"200%",
-					zIndex: "3",
-				})
-				setTimeout(function() {
-					$("#container .zi2").css({
-						left:"200%",
-						zIndex: "3",
-					})
-				},2000)
-			},2000)
-		}
-	</script>
+
+<head>
+
+    <title>陈星宇</title>
+    <meta name="language" content="zh-CN">
+    <meta name="title" content="996">
+    <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
+    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .city {
+            width: 100%;
+            position: fixed;
+            bottom:
+                0px;
+            z-index: 100;
+        }
+
+        .city img {
+            width: 100%;
+        }
+
+        audio {
+            opacity: 0;
+        }
+    </style>
+    <title>
+        放烟花
+    </title>
+    <link href="modal.css" rel="stylesheet" />
+</head>
+
+<body onselectstart="return false">
+    <!--对话部分-->
+    <div class="share_img"><img src="a8b.png" alt=""></div>
+
+    <div class="page_one">
+        <div class="content">
+            <div class="text_wrapper">
+                <img src="a8.png" alt="">
+                <div class="text">
+                    小姐姐，我好喜欢你，你愿意做我女朋友吗？
+                </div>
+            </div>
+        </div>
+        <div class="btn-groups">
+            <div class="heart-btn">
+                <div id="yes" class="btn btn-a"><span>愿意</span></div>
+            </div>
+            <div id="no" class="btn btn-b"><span>不愿意</span></div>
+        </div>
+    </div>
+    <!--烟花部分-->
+    <canvas id='cas' style="background-color:rgba(0,5,24,1)">
+        浏览器不支持canvas
+    </canvas>
+    <div class="city">
+        <img src="city.png" alt="" />
+    </div>
+    <img src="moon.png" alt="" id="moon" style="visibility: hidden;" />
+    <div style="display:none">
+        <div class="shape">
+            陈星宇
+        </div>
+        <div class="shape">
+            我喜欢你
+        </div>
+    </div>
+    <!--音乐部分-->
+    <audio autoplay loop id="music">
+        <source src="music.mp3" />
+    </audio>
+    <iframe id="iframMusic" allow="autoplay" style="display:none" src="blank.mp3"></iframe>
+    <script src="jquery.min.js"></script>
+    <script src="fire.js"></script>
+    <script src="talk.js"></script>
+</body>
+
 </html>
